@@ -5,27 +5,50 @@ import ListMoviePage from "./containers/HomeTemplate/ListMoviePage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PageNotFound from "./containers/PageNotFound";
 import NavbarHome from "./components/NavbarHome";
-import { routesHome } from "./routes";
+import { routesHome, routesAdmin } from "./routes";
+import NavbarAdmin from "./components/NavbarAdmin";
+import HomeTemplate from "./containers/HomeTemplate";
+import AdminTemplate from "./containers/AdminTemplate";
+import AuthPage from "./containers/AdminTemplate/AuthPage";
+
 function App() {
   const showLayoutHome = (routes) => {
     if (routes && routes.length > 1) {
       return routes.map((items, index) => {
         return (
-          <Route
-            key={index} //mỗi lần duyệt mảng trong react thì cần có key
+          // <Route
+          //   key={index} //mỗi lần duyệt mảng trong react thì cần có key
+          //   exact={items.exact}
+          //   path={items.path}
+          //   component={items.component}
+          // />
+          <HomeTemplate
+            key={index}
             exact={items.exact}
             path={items.path}
-            component={items.component}
+            Component={items.component}
           />
         );
       });
     }
   };
-
+  const showLayoutAdmin = (routes) => {
+    if (routes && routes.length > 0) {
+      return routes.map((item, index) => {
+        return (
+          <AdminTemplate
+            key={index}
+            exact={item.exact}
+            path={item.path}
+            Component={item.component}
+          />
+        );
+      });
+    }
+  };
   return (
     <BrowserRouter>
       <div>
-        <NavbarHome />
         <Switch>
           {/* Trang Homepage - localhost:3000
           <Route exact path="/" component={HomePage} />
@@ -37,6 +60,9 @@ function App() {
           <Route path="/list-movie" component={ListMoviePage} /> */}
 
           {showLayoutHome(routesHome)}
+          {showLayoutAdmin(routesAdmin)}
+
+          <Route exact={false} path="/auth" component={AuthPage} />
 
           {/* Trang không tìm thấy - nếu không sài trang này thì thôi, nhưng nếu sài thì phải để cuối cùng! */}
           <Route path="" component={PageNotFound} />

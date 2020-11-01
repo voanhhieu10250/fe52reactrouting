@@ -2,6 +2,9 @@ import AboutPage from "../containers/HomeTemplate/Aboutpage";
 import HomePage from "../containers/HomeTemplate/Homepage";
 import ListMoviePage from "../containers/HomeTemplate/ListMoviePage";
 import DetailPage from "../containers/HomeTemplate/DetailPage";
+import HocPage from "../containers/HomeTemplate/HocPage";
+import DashbroadPage from "../containers/AdminTemplate/DashboardPage";
+import UserPage from "../containers/AdminTemplate/UserPage";
 
 const routesHome = [
   {
@@ -24,6 +27,24 @@ const routesHome = [
     path: "/detail/:id",
     component: DetailPage,
   },
+  {
+    exact: false,
+    path: "/hoc",
+    component: HocPage,
+  },
 ];
 
-export { routesHome };
+const routesAdmin = [
+  {
+    exact: false,
+    path: "/dashbroad",
+    component: DashbroadPage,
+  },
+  {
+    exact: false,
+    path: "/user",
+    component: UserPage,
+  },
+];
+
+export { routesHome, routesAdmin };
