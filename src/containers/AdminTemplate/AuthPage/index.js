@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { actLoginApi } from "./modules/action";
+import Loader from "../../../components/Loader";
 
-export default class AuthPage extends Component {
+class AuthPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,16 +21,26 @@ export default class AuthPage extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.login(this.state, this.props.history);
+  };
+
+  renderNoti = () => {
+    const { error } = this.props;
+    if (error) {
+      return <div className="alert alert-danger">{error.response.data}</div>;
+    }
   };
 
   render() {
+    const { loading } = this.props;
+    if (loading) return <Loader />;
     return (
       <div>
         <div className="row">
           <div className="col-md-6 mx-auto">
             <h3>AuthPage</h3>
             <form onSubmit={this.handleLogin}>
+              {this.renderNoti()}
               <div>
                 <div className="form-group">
                   <label>Username</label>
@@ -58,3 +71,20 @@ export default class AuthPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    loading: state.authReducer.loading,
+    error: state.authReducer.err,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (user, history) => {
+      dispatch(actLoginApi(user, history));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthPage);
