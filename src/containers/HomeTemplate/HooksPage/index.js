@@ -37,14 +37,14 @@ export default function HooksPage() {
       console.log("useEffect = componentWillUnmount");
       clearInterval(interval);
     };
-  }, [number]);
+  }, []);
 
   const showNumber = () => {
     console.log("showNumber");
   };
 
   //sài cái này khi chỉ muốn đẩy props qua con thôi, ko bị chạy lại nhiều lần
-  const showNumberCallBack = useCallback(showNumber, []);
+  const showNumberCallback = useCallback(showNumber, []);
 
   const numberUp = () => {
     let i = 0;
@@ -56,7 +56,7 @@ export default function HooksPage() {
   // Ở đây sài useMemo cho hàm numbenUp ở trên thì khi mà có hoạt động thay đổi và cliet
   //phải render lại thì hàm numberUp này không phải chạy lại (vì đặc điểm của function là mỗi khi có
   //hoạt động thay đổi thì nó sẽ render lại hết từ trên xuống dưới)
-  const NumberUpMemo = useMemo(() => numberUp, []);
+  const numberUpMemo = useMemo(() => numberUp, []);
 
   return (
     <div>
@@ -64,8 +64,8 @@ export default function HooksPage() {
       <button className="btn btn-success" onClick={handleClick}>
         Click
       </button>
-      <Child showNumber={showNumberCallBack} />
-      <h3>Number Up: {NumberUpMemo()}</h3>
+      <Child showNumber={showNumberCallback} />
+      <h3>Number Up: {numberUpMemo}</h3>
     </div>
   );
 }
