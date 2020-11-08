@@ -47,7 +47,7 @@ class UserPage extends Component {
         <h3>UserPage</h3>
         <form className="container" onSubmit={this.handleSubmit}>
           <h3>Thêm người dùng</h3>
-          {this.renderNoti}
+          {this.renderNoti()}
           <div className="form-group">
             <span>Tài khoản</span>
             <input
