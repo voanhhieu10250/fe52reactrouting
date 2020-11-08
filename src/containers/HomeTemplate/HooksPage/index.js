@@ -56,7 +56,7 @@ export default function HooksPage() {
   // Ở đây sài useMemo cho hàm numbenUp ở trên thì khi mà có hoạt động thay đổi và cliet
   //phải render lại thì hàm numberUp này không phải chạy lại (vì đặc điểm của function là mỗi khi có
   //hoạt động thay đổi thì nó sẽ render lại hết từ trên xuống dưới)
-  const numberUpMemo = useMemo(() => numberUp, []);
+  const numberUpMemo = useMemo(() => numberUp(), []);
 
   return (
     <div>
