@@ -7,22 +7,28 @@ import DashbroadPage from "../containers/AdminTemplate/DashboardPage";
 import UserPage from "../containers/AdminTemplate/UserPage";
 import HooksPage from "../containers/HomeTemplate/HooksPage";
 import MaterialPage from "../containers/HomeTemplate/MaterialPage";
+import React from "react";
 
 const routesHome = [
   {
     exact: true,
     path: "/",
-    component: HomePage,
+    // component: HomePage,
+    component: React.lazy(() => import("../containers/HomeTemplate/Homepage")),
   },
   {
     exact: false,
     path: "/about",
-    component: AboutPage,
+    // component: AboutPage,
+    component: React.lazy(() => import("../containers/HomeTemplate/Aboutpage")),
   },
   {
     exact: false,
     path: "/list-movie",
-    component: ListMoviePage,
+    // component: ListMoviePage,
+    component: React.lazy(() =>
+      import("../containers/HomeTemplate/ListMoviePage")
+    ),
   },
   {
     exact: false,

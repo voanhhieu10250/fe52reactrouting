@@ -10,10 +10,12 @@ import NavbarAdmin from "./components/NavbarAdmin";
 import HomeTemplate from "./containers/HomeTemplate";
 import AdminTemplate from "./containers/AdminTemplate";
 import AuthPage from "./containers/AdminTemplate/AuthPage";
+import React, { Suspense } from "react";
+import Loader from "./components/Loader";
 
 function App() {
   const showLayoutHome = (routes) => {
-    if (routes && routes.length > 1) {
+    if (routes && routes.length > 0) {
       return routes.map((items, index) => {
         return (
           // <Route
@@ -59,11 +61,18 @@ function App() {
           Trang ListMoviePage - localhost:3000/list-movie
           <Route path="/list-movie" component={ListMoviePage} /> */}
 
-          {showLayoutHome(routesHome)}
-          {showLayoutAdmin(routesAdmin)}
-
-          <Route exact={false} path="/auth" component={AuthPage} />
-
+          <Suspense fallback={<Loader />}>
+            {showLayoutAdmin(routesAdmin)}
+            {/* <Route exact={false} path="/auth" component={AuthPage} /> */}
+            <Route
+              exact={false}
+              path="/auth"
+              component={React.lazy(() =>
+                import("./containers/AdminTemplate/AuthPage")
+              )}
+            />
+            {showLayoutHome(routesHome)}
+          </Suspense>
           {/* Trang không tìm thấy - nếu không sài trang này thì thôi, nhưng nếu sài thì phải để cuối cùng! */}
           <Route path="" component={PageNotFound} />
         </Switch>
