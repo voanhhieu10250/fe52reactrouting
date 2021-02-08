@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/fe52reactrouting/static/css/main.55ddd5bf.chunk.css",
+    "main.js": "/fe52reactrouting/static/js/main.be2a7996.chunk.js",
+    "main.js.map": "/fe52reactrouting/static/js/main.be2a7996.chunk.js.map",
+    "runtime-main.js": "/fe52reactrouting/static/js/runtime-main.0caace9f.js",
+    "runtime-main.js.map": "/fe52reactrouting/static/js/runtime-main.0caace9f.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/fe52reactrouting/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.661b8b13.chunk.js": "/fe52reactrouting/static/js/2.661b8b13.chunk.js",
+    "static/js/2.661b8b13.chunk.js.map": "/fe52reactrouting/static/js/2.661b8b13.chunk.js.map",
+    "static/js/3.69789494.chunk.js": "/fe52reactrouting/static/js/3.69789494.chunk.js",
+    "static/js/3.69789494.chunk.js.map": "/fe52reactrouting/static/js/3.69789494.chunk.js.map",
+    "index.html": "/fe52reactrouting/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/fe52reactrouting/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.55ddd5bf.chunk.css.map": "/fe52reactrouting/static/css/main.55ddd5bf.chunk.css.map",
+    "static/js/2.661b8b13.chunk.js.LICENSE.txt": "/fe52reactrouting/static/js/2.661b8b13.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0caace9f.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.661b8b13.chunk.js",
+    "static/css/main.55ddd5bf.chunk.css",
+    "static/js/main.be2a7996.chunk.js"
+  ]
+}
